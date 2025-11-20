@@ -5,6 +5,8 @@ this plugin requires my **momsurffix2** API to function. it can be found here: h
 
 it is heavily beta, work in progress, and needs a lot more in terms of basic formatting and colours, but the actual data is accurate for determining boards.  
 
+[![alt](https://img.youtube.com/vi/CerAtEUGvwY/0.jpg)](https://www.youtube.com/watch?v=CerAtEUGvwY)
+
 ## features
 
 - **instant feedback:** shows a hud overlay immediately after surfing a board (ramp).
