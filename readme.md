@@ -11,6 +11,11 @@ it is heavily beta, work in progress, and needs a lot more in terms of basic for
 
 - **instant feedback:** shows a hud overlay immediately after surfing a board (ramp).
 - **detailed stats:** displays speed loss, loss percentage, approach angle, into-plane velocity, and ramp slope.
+  - loss: amount of speed lost from the board in units with percentage of your total speed lost next to it
+  - approach angle: the closer this is to 90, the more flawlessly you boarded the ramp. it's your angle adjacent to your board.
+  - into-plane velocity: the amount of your velocity that was not parallel to the plane
+  - ramp slope: the actual slope of the ramp in degrees
+  - in and out means the velocity you went into the clip with, and the velocity you had after you clipped the random
 - **grading system:** categorizes boards (e.g., "perfect", "okay", "scuffed") based on configurable thresholds.
 - **customizable hud:** players can toggle specific stats, switch between compact/detailed modes, and move the hud position.
 - **settings menu:** easy in-game menu to configure personal preferences.
