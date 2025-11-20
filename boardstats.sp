@@ -100,8 +100,8 @@ public void OnPluginStart()
 	gCvarRampMinZ = CreateConVar("sm_boardcoach_ramp_min_normal_z", "0.1", "Min plane normal Z to consider a ramp clip (rejects walls).", 0, true, -1.0, true, 1.0);
 	gCvarRampMaxZ = CreateConVar("sm_boardcoach_ramp_max_normal_z", "0.75", "Max plane normal Z to consider a ramp clip (rejects floors).", 0, true, -1.0, true, 1.0);
 	gCvarMinSpeed = CreateConVar("sm_boardcoach_min_speed", "100.0", "Ignore boards slower than this speed.", 0, true, 0.0, true, 4000.0);
-	gCvarHudPosX = CreateConVar("sm_boardcoach_hud_x", "-1.0", "Default HUD X position (0.0-1.0).", 0, true, 0.0, true, 1.0);
-	gCvarHudPosY = CreateConVar("sm_boardcoach_hud_y", "-1.0", "Default HUD Y position (0.0-1.0).", 0, true, 0.0, true, 1.0);
+	gCvarHudPosX = CreateConVar("sm_boardcoach_hud_x", "-1.0", "Default HUD X position (0.0-1.0, -1.0 is centre).", 0, true, -1.0, true, 1.0);
+	gCvarHudPosY = CreateConVar("sm_boardcoach_hud_y", "-1.0", "Default HUD Y position (0.0-1.0, -1.0 is centre).", 0, true, -1.0, true, 1.0);
 	gCvarDefaultCompact = CreateConVar("sm_boardcoach_default_compact", "0", "Use compact HUD layout by default.", 0, true, 0.0, true, 1.0);
 	gCvarDefaultLossPct = CreateConVar("sm_boardcoach_default_show_loss_pct", "1", "Show loss percent alongside loss units by default.", 0, true, 0.0, true, 1.0);
 	gCvarDefaultIntoPlane = CreateConVar("sm_boardcoach_default_show_into_plane", "1", "Show the into-plane velocity component by default.", 0, true, 0.0, true, 1.0);
