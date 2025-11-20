@@ -100,8 +100,8 @@ public void OnPluginStart()
 	gCvarRampMinZ = CreateConVar("sm_boardcoach_ramp_min_normal_z", "0.1", "Min plane normal Z to consider a ramp clip (rejects walls).", 0, true, -1.0, true, 1.0);
 	gCvarRampMaxZ = CreateConVar("sm_boardcoach_ramp_max_normal_z", "0.75", "Max plane normal Z to consider a ramp clip (rejects floors).", 0, true, -1.0, true, 1.0);
 	gCvarMinSpeed = CreateConVar("sm_boardcoach_min_speed", "100.0", "Ignore boards slower than this speed.", 0, true, 0.0, true, 4000.0);
-	gCvarHudPosX = CreateConVar("sm_boardcoach_hud_x", "0.50", "Default HUD X position (0.0-1.0).", 0, true, 0.0, true, 1.0);
-	gCvarHudPosY = CreateConVar("sm_boardcoach_hud_y", "0.05", "Default HUD Y position (0.0-1.0).", 0, true, 0.0, true, 1.0);
+	gCvarHudPosX = CreateConVar("sm_boardcoach_hud_x", "-1.0", "Default HUD X position (0.0-1.0).", 0, true, 0.0, true, 1.0);
+	gCvarHudPosY = CreateConVar("sm_boardcoach_hud_y", "-1.0", "Default HUD Y position (0.0-1.0).", 0, true, 0.0, true, 1.0);
 	gCvarDefaultCompact = CreateConVar("sm_boardcoach_default_compact", "0", "Use compact HUD layout by default.", 0, true, 0.0, true, 1.0);
 	gCvarDefaultLossPct = CreateConVar("sm_boardcoach_default_show_loss_pct", "1", "Show loss percent alongside loss units by default.", 0, true, 0.0, true, 1.0);
 	gCvarDefaultIntoPlane = CreateConVar("sm_boardcoach_default_show_into_plane", "1", "Show the into-plane velocity component by default.", 0, true, 0.0, true, 1.0);
@@ -553,13 +553,15 @@ public void OnGameFrame()
 		int gradeR, gradeG, gradeB;
 		GetBoardGrade(g_Board[client], grade, sizeof(grade), gradeR, gradeG, gradeB);
 
-		int finalR = gradeR;
-		int finalG = gradeG;
-		int finalB = gradeB;
+		int finalR = ClampInt(gradeR, 0, 255);
+		int finalG = ClampInt(gradeG, 0, 255);
+		int finalB = ClampInt(gradeB, 0, 255);
 
-		finalR = ClampInt(finalR, 0, 255);
-		finalG = ClampInt(finalG, 0, 255);
-		finalB = ClampInt(finalB, 0, 255);
+		int hudColor[4];
+		hudColor[0] = finalR;
+		hudColor[1] = finalG;
+		hudColor[2] = finalB;
+		hudColor[3] = 255;
 
 		char hud[256];
 		BuildHudString(g_Board[client], g_Prefs[client], grade, hud, sizeof(hud));
@@ -567,7 +569,8 @@ public void OnGameFrame()
 		float remain = displayTime - age;
 		if (remain < 0.1) remain = 0.1;
 
-		SetHudTextParams(g_Prefs[client].posX, g_Prefs[client].posY, remain, finalR, finalG, finalB, 255, 0, 0.0, 0.0, 0.0);
+		// Use the category color for both HUD channels to avoid flickering or mismatched hues.
+		SetHudTextParamsEx(g_Prefs[client].posX, g_Prefs[client].posY, remain, hudColor, hudColor, 0, 0.0, 0.0, 0.0);
 		ShowSyncHudText(client, g_hHudSync, hud);
 	}
 }
