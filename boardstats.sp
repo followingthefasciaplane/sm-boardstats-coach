@@ -332,8 +332,8 @@ public Action Command_SetHudPos(int client, int args)
 	GetCmdArg(2, arg, sizeof(arg));
 	float y = StringToFloat(arg);
 
-	g_Prefs[client].posX = ClampFloat(x, 0.0, 1.0);
-	g_Prefs[client].posY = ClampFloat(y, 0.0, 1.0);
+	g_Prefs[client].posX = ClampFloat(x, -1.0, 1.0);
+	g_Prefs[client].posY = ClampFloat(y, -1.0, 1.0);
 	SaveClientPrefs(client);
 
 	PrintToChat(client, "[BoardCoach] HUD position set to X %.2f | Y %.2f.", g_Prefs[client].posX, g_Prefs[client].posY);
