@@ -220,8 +220,8 @@ void LoadClientPrefs(int client)
 		g_Prefs[client].showAngles = StringToInt(parts[3]) != 0;
 		g_Prefs[client].showSpeeds = StringToInt(parts[4]) != 0;
 		g_Prefs[client].compact = StringToInt(parts[5]) != 0;
-		g_Prefs[client].posX = ClampFloat(StringToFloat(parts[7]), 0.0, 1.0);
-		g_Prefs[client].posY = ClampFloat(StringToFloat(parts[8]), 0.0, 1.0);
+		g_Prefs[client].posX = ClampFloat(StringToFloat(parts[7]), -1.0, 1.0);
+		g_Prefs[client].posY = ClampFloat(StringToFloat(parts[8]), -1.0, 1.0);
 
 		float scale = ClampFloat(StringToFloat(parts[9]), 0.25, 3.0);
 		g_Prefs[client].displayTime = ClampFloat(gCvarDisplayTime.FloatValue * scale, HUD_TIME_MIN, HUD_TIME_MAX);
@@ -243,8 +243,8 @@ void LoadClientPrefs(int client)
 		g_Prefs[client].showLossPct = StringToInt(parts[6]) != 0;
 		g_Prefs[client].showIntoPlane = StringToInt(parts[7]) != 0;
 		g_Prefs[client].showRampAngle = StringToInt(parts[8]) != 0;
-		g_Prefs[client].posX = ClampFloat(StringToFloat(parts[9]), 0.0, 1.0);
-		g_Prefs[client].posY = ClampFloat(StringToFloat(parts[10]), 0.0, 1.0);
+		g_Prefs[client].posX = ClampFloat(StringToFloat(parts[9]), -1.0, 1.0);
+		g_Prefs[client].posY = ClampFloat(StringToFloat(parts[10]), -1.0, 1.0);
 		g_Prefs[client].displayTime = ClampFloat(StringToFloat(parts[11]), HUD_TIME_MIN, HUD_TIME_MAX);
 	}
 }
