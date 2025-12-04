@@ -461,10 +461,12 @@ public int SettingsMenuHandler(Menu menu, MenuAction action, int client, int par
 	return 0;
 }
 
-public void MomSurfFix_OnClipVelocity(int client, const float inVel[3], const float planeNormal[3], const float outVel[3], float overbounce)
+public void MomSurfFix_OnClipVelocity(int client, int tickCount, int callSerial, MomSurfFixStepPhase stepPhase, const float inVel[3], const float planeNormal[3], const float outVel[3], float overbounce)
 {
 	if (!gCvarEnable.BoolValue || !ValidClient(client) || !g_LibraryReady)
 		return;
+
+	#pragma unused tickCount, callSerial, stepPhase, overbounce
 
 	if (g_BoardLocked[client]) return;
 
@@ -518,10 +520,12 @@ public void MomSurfFix_OnClipVelocity(int client, const float inVel[3], const fl
 	g_BoardLocked[client] = true;
 }
 
-public void MomSurfFix_OnTryPlayerMovePost(int client, int blockedMask, int lastIteration, int maxIterations,
+public void MomSurfFix_OnTryPlayerMovePost(int client, int tickCount, int callSerial, MomSurfFixStepPhase stepPhase, int blockedMask, int lastIteration, int maxIterations,
 	const float finalVelocity[3], const float finalOrigin[3], bool stuckOnRamp, bool hasValidPlane, const float finalPlane[3], float totalFraction)
 {
 	if (!gCvarEnable.BoolValue || !ValidClient(client) || !g_LibraryReady) return;
+
+	#pragma unused tickCount, callSerial, stepPhase, blockedMask, lastIteration, maxIterations, finalVelocity, finalOrigin, stuckOnRamp, hasValidPlane, finalPlane, totalFraction
 
 	if (!g_BoardLocked[client]) return;
 
