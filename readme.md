@@ -1,12 +1,16 @@
-# board stats  
+## vid
+
+[![vid](https://img.youtube.com/vi/kngCvTx0NEE/0.jpg)](https://www.youtube.com/watch?v=kngCvTx0NEE)
+
+## board stats  
   
 a sourcemod plugin for surf servers that helps players learn how to board ramps better. shows you a hud with detailed info every time you board a ramp, so you can see what you did right or wrong and improve over time.  
   
 requires my [momsurffix2](https://github.com/followingthefasciaplane/MomSurfFix-API) fork to work. we are reading the direct engine clipping math to be able to do this, so it won't work with your regular momsurffix2. that might be bad news for some owners because i would not recommend putting my API on your public server. if nothing breaks online, then the performance probably will. still working on that.  
   
 i have included a compiled smx and the include file from my momsurffix2 fork in this repository, however, feel free to go recompile it yourself over there too. you will need to **replace your existing one**.  
-  
-SUPER IMPORTANT: **TO REITERATE, PLAY WITH THIS AND MY FORK ON YOUR OWN LOCAL SERVER. DO NOT PUT THIS ON YOUR PUBLIC SERVER YET** unless you know its gonna be aight cuz i sure dont. ill probably get it there at some point though, or make a standalone version.  
+
+**SUPER IMPORTANT**: TO REITERATE, PLAY WITH THIS AND MY FORK ON YOUR OWN LOCAL SERVER. DO NOT PUT THIS ON YOUR PUBLIC SERVER YET unless you know its gonna be aight cuz i sure dont. ill probably get it there at some point though, or make a standalone version.  
     
 ## what it does  
   
