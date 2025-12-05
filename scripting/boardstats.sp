@@ -345,7 +345,7 @@ void WriteDefaultConfig()
     file.WriteLine("\"BoardStats\"");
     file.WriteLine("{");
     file.WriteLine("    // Grade thresholds - evaluated in order (Perfect first)");
-    file.WriteLine("    // A board qualifies for a grade if it meets EITHER the loss% OR angle threshold");
+    file.WriteLine("    // A board qualifies for a grade if it meets BOTH the loss% AND angle threshold");
     file.WriteLine("    \"Grades\"");
     file.WriteLine("    {");
     file.WriteLine("        \"Perfect\"");
